@@ -18,10 +18,10 @@ exports.extServices = () => {
     };
 
     const prodSvcURLS = {
-        auth: "http://localhost:5789",
-        quotes: "http://localhost:9934",
-        opendata: "http://localhost:9123",
-        words: "http://localhost:9774"
+        auth: "https://ryauth.now.sh",
+        quotes: "http://ryquotes.now.sh",
+        opendata: "https://engadget.com",
+        words: "https://rywords.now.sh"
     };    
 
     return process.env.NODE_ENV === "dev" ? devSvcURLS : prodSvcURLS;

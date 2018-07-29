@@ -1,7 +1,10 @@
 const router = require("express").Router();
 const path = require("path");
 const proxy = require("express-http-proxy");
+const {extServices} = require("../config.js");
 const wrapAsync = require("../common/wrapasync");
+
+const externalServices = extServices();
 
 router.get("/", wrapAsync(async (req, res) => {
     res.status(200).sendFile(path.join(__dirname, "../public/static/index.html"));
@@ -16,8 +19,8 @@ router.get("/signup", wrapAsync(async (req, res) => {
 }));
 
 
-router.get("/words", proxy("localhost:9774"));
-router.get("/quotes", proxy("localhost:9934"));
-router.get("/opendata", proxy("localhost:9123"));
+router.get("/words", proxy(externalServices.words);
+router.get("/quotes", proxy(externalServices.auth));
+router.get("/opendata", proxy(externalServices.opendata));
 
 module.exports = router;
